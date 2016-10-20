@@ -31,6 +31,28 @@ o pueden ver los links siguientes para entrar directamente:
 
 ****************************************************/
 
+/*
+Abrir la consola Serial en 9600 baud para ver el menu de opciones.
+
+Si necesitas setar los datos GPRS como APN, username, password podes hacerlo al final del setup
+y descomentar esas lineas para que quede seteado correctamente.
+( ATENCION!, estos datos te los puede suministrar tu compañia de celular )
+
+Nota:
+
+ Para SoftwareSerial usamos los pines 7 y 8 ( TX,RX del shield respectivamente ),
+ por lo que para otras placas compatibles con el Shield se debe cambiar el pin RX,
+ 
+ No todos los pines del MEGA y MEGA2560 pueden ser usados para cambiar interrupciones,
+ por lo que solo los siguientes pines pueden ser usados para RX:
+ 10, 11, 12, 13, 50, 51, 52, 53, 62, 63, 64, 65, 66, 67, 68, 69
+
+ No todos los pines del LEONARDO y MICRO pueden ser usados para cambiar interrupciones,
+ por lo que solo los siguientes pines pueden ser usados para RX:
+ 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
+
+*/
+
 //Abrir la consola Serial en 9600 baud para ver el menu de opciones.
 
 #include "eMGing_900_808.h"

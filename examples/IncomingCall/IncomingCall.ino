@@ -38,15 +38,31 @@ Si necesitas setar los datos GPRS como APN, username, password podes hacerlo al 
 y descomentar esas lineas para que quede seteado correctamente.
 ( ATENCION!, estos datos te los puede suministrar tu compañia de celular )
 
-*/// Ejemplo de llamada entrante para el modulo eMGing
-// Escucha a una llamada y luego muestra el numero de telefono del que llama, si es posible.
-// Use este ejemplo para detectar su numero de telefono en tu propio proyecto !.
+Nota:
 
+ Para SoftwareSerial usamos los pines 7 y 8 ( TX,RX del shield respectivamente ),
+ por lo que para otras placas compatibles con el Shield se debe cambiar el pin RX,
+ 
+ No todos los pines del MEGA y MEGA2560 pueden ser usados para cambiar interrupciones,
+ por lo que solo los siguientes pines pueden ser usados para RX:
+ 10, 11, 12, 13, 50, 51, 52, 53, 62, 63, 64, 65, 66, 67, 68, 69
+
+ No todos los pines del LEONARDO y MICRO pueden ser usados para cambiar interrupciones,
+ por lo que solo los siguientes pines pueden ser usados para RX:
+ 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
+
+*/
+
+/* Ejemplo de llamada entrante para el modulo eMGing
+ Escucha a una llamada y luego muestra el numero de telefono del que llama, si es posible.
+ Use este ejemplo para detectar su numero de telefono en tu propio proyecto !.
+*/
+ 
 #include "eMGing_900_808.h"
 
+#define EMGING_RX 8    // corresponde al pin TX del Arduino
+#define EMGING_TX 7    // corresponde al pin RX del Arduino
 
-#define EMGING_RX 8
-#define EMGING_TX 7
 #define EMGING_RST 4
 
 // en esta aplicacion, puedes conectar el pin de RI del shield
