@@ -45,7 +45,7 @@ Nota:
  
  No todos los pines del MEGA y MEGA2560 pueden ser usados para cambiar interrupciones,
  por lo que solo los siguientes pines pueden ser usados para RX:
- 10, 11, 12, 13, 50, 51, 52, 53, 62, 63, 64, 65, 66, 67, 68, 69
+ 10, 11, 12, 13, 53, 62, 63, 64, 65, 66, 67, 68, 69
 
  No todos los pines del LEONARDO y MICRO pueden ser usados para cambiar interrupciones,
  por lo que solo los siguientes pines pueden ser usados para RX:
