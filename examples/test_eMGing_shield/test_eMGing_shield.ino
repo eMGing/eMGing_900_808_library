@@ -127,11 +127,19 @@ void setup() {
   // el APN.
   // Para configurar tenes que descomentar la siguientes linea y 
   // reemplazar por los valores correctos:
-  // PARA MOVISTAR ARGENTINA:
+    // PARA MOVISTAR ARGENTINA:
   // apn: internet.gprs.unifon.com
   // usuario: internet
   // password: gprs
-  //eMGing.setGPRSNetworkSettings(F("cambiar por tu APN"), F("cambiar por tu usuario"), F("cambiar por tu password"));
+	// PARA CLARO ARGENTINA:
+  // apn: igprs.claro.com.ar   // o ba.amx
+  // usuario: clarogprs
+  // password: clarogprs999
+	// PARA PERSONAL ARGENTINA:
+  // apn: internet.personal.com
+  // usuario: datos
+  // password: datos
+  eMGing.setGPRSNetworkSettings(F("internet.gprs.unifon.com"), F("internet"), F("gprs"));
 
   // Opcionalmente tambien podes configurar el HTTP para que redireccione
   // por SSL.

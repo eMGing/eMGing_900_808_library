@@ -505,7 +505,6 @@ boolean eMGing_900_808::readSMS(uint8_t i, char *smsbuff,
   
   if (! parseReply(F("+CMGR:"), &thesmslen, ',', 11)) {
     *readlen = 0;
-    return false;
   }
 
   readRaw(thesmslen);
