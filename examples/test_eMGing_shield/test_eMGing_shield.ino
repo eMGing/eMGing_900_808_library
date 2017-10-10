@@ -28,6 +28,11 @@ o pueden ver los links siguientes para entrar directamente:
 
   * http://www.emging.com.ar/2016/07/06/shield-gsm-gprs-sim900/
   * http://www.emging.com.ar/2016/07/20/shield-gsm-gprs-gps-sim808/
+  
+ consultas: info@eMGing.com.ar
+ web: www.eMGing.com.ar
+ FB: @eMGing.com.ar
+ Youtube: https://goo.gl/5QtmC8
 
 ****************************************************/
 
