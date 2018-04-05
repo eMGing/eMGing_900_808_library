@@ -28,11 +28,6 @@ o pueden ver los links siguientes para entrar directamente:
 
   * http://www.emging.com.ar/2016/07/06/shield-gsm-gprs-sim900/
   * http://www.emging.com.ar/2016/07/20/shield-gsm-gprs-gps-sim808/
-  
- consultas: info@eMGing.com.ar
- web: www.eMGing.com.ar
- FB: @eMGing.com.ar
- Youtube: https://goo.gl/5QtmC8
 
 ****************************************************/
 
@@ -60,9 +55,14 @@ Nota:
 
 #include "eMGing_900_808.h"
 
-#define EMGING_RX 8    // corresponde al pin TX del Arduino
-//#define EMGING_TX 7    // PARA SHIELD eMGING 808/900 v1.0 corresponde al pin RX del Arduino
-#define EMGING_TX 10    // PARA SHIELD eMGING 808/900 v1.1 corresponde al pin RX del Arduino
+#define EMGING_RX 8    // corresponde al pin TX del Arduino UNO/MEGA
+//PARA ARDUINO UNO
+//#define EMGING_TX 7    // PARA SHIELD eMGING 808/900 v1.0 corresponde al pin RX del Arduino UNO
+#define EMGING_TX 10    // PARA SHIELD eMGING 808/900 v1.1 corresponde al pin RX del Arduino UNO
+//PARA ARDUINO MEGA
+//#define EMGING_TX 62    // PARA SHIELD eMGING 808/900 v1.0 corresponde al pin RX del Arduino MEGA 
+//#define EMGING_TX 10    // PARA SHIELD eMGING 808/900 v1.1 corresponde al pin RX del Arduino UNO
+
 #define EMGING_RST 4
 
 // Buffer para las respuestas a los comandos AT
@@ -137,11 +137,11 @@ void setup() {
   // apn: internet.gprs.unifon.com
   // usuario: internet
   // password: gprs
-	// PARA CLARO ARGENTINA:
+  // PARA CLARO ARGENTINA:
   // apn: igprs.claro.com.ar   // o ba.amx
   // usuario: clarogprs
   // password: clarogprs999
-	// PARA PERSONAL ARGENTINA:
+    // PARA PERSONAL ARGENTINA:
   // apn: internet.personal.com
   // usuario: datos
   // password: datos

@@ -55,10 +55,13 @@ Nota:
 
 #include "eMGing_900_808.h"
 
-#define EMGING_RX 8    // corresponde al pin TX del Arduino
-//#define EMGING_TX 7    // PARA SHIELD eMGING 808/900 v1.0 corresponde al pin RX del Arduino
-#define EMGING_TX 10    // PARA SHIELD eMGING 808/900 v1.1 corresponde al pin RX del Arduino
-#define EMGING_RST 4
+#define EMGING_RX 8    // corresponde al pin TX del Arduino UNO/MEGA
+//PARA ARDUINO UNO
+//#define EMGING_TX 7    // PARA SHIELD eMGING 808/900 v1.0 corresponde al pin RX del Arduino UNO
+#define EMGING_TX 10    // PARA SHIELD eMGING 808/900 v1.1 corresponde al pin RX del Arduino UNO
+//PARA ARDUINO MEGA
+//#define EMGING_TX 62    // PARA SHIELD eMGING 808/900 v1.0 corresponde al pin RX del Arduino MEGA 
+//#define EMGING_TX 10    // PARA SHIELD eMGING 808/900 v1.1 corresponde al pin RX del Arduino UNO
 
 // Buffer para las respuestas a los comandos AT
 char replybuffer[255];
