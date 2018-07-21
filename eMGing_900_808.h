@@ -133,11 +133,13 @@ class eMGing_900_808 : public Stream {
   boolean sendSMS(char *smsaddr, char *smsmsg);
   boolean deleteSMS(uint8_t i);
   boolean getSMSSender(uint8_t i, char *sender, int senderlen);
+  boolean getSMSdate(uint8_t i, char *date, int datelen);
+  boolean getSMStime(uint8_t i, char *time, int timelen);
   boolean sendUSSD(char *ussdmsg, char *ussdbuff, uint16_t maxlen, uint16_t *readlen);
 
   // Time
   boolean enableNetworkTimeSync(boolean onoff);
-  boolean enableNTPTimeSync(boolean onoff, FlashStringPtr ntpserver=0);
+  boolean eMGing_900_808::enableNTPTimeSync(boolean onoff, FlashStringPtr ntpserver=0);
   boolean getTime(char *buff, uint16_t maxlen);
 
   // GPRS handling
@@ -146,6 +148,7 @@ class eMGing_900_808 : public Stream {
   boolean getGSMLoc(uint16_t *replycode, char *buff, uint16_t maxlen);
   boolean getGSMLoc(float *lat, float *lon);
   void setGPRSNetworkSettings(FlashStringPtr apn, FlashStringPtr username=0, FlashStringPtr password=0);
+  
 
   // GPS handling
   boolean enableGPS(boolean onoff);

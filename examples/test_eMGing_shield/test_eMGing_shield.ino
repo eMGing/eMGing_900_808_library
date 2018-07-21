@@ -145,8 +145,10 @@ void setup() {
   // apn: internet.personal.com
   // usuario: datos
   // password: datos
-  eMGing.setGPRSNetworkSettings(F("internet.gprs.unifon.com"), F("internet"), F("gprs"));
-
+  
+  //eMGing.setGPRSNetworkSettings(F("internet.gprs.unifon.com"), F("internet"), F("gprs"));
+	eMGing.setGPRSNetworkSettings(F("igprs.claro.com.ar"), F("clarogprs"), F("clarogprs999"));
+	
   // Opcionalmente tambien podes configurar el HTTP para que redireccione
   // por SSL.
   // Por default no hace redirecciones por SSL, pero si descomentan la siguiente
@@ -544,6 +546,13 @@ void loop() {
           break;
         }
         Serial.print(F("FROM: ")); Serial.println(replybuffer);
+		
+		// Retrieve SMS time & date.
+        if (! eMGing.getSMSdate(smsn, replybuffer, 250)) {
+          Serial.println("Failed!");
+          break;
+        }
+        Serial.print(F("DATE: ")); Serial.println(replybuffer);
 
         // Retrieve SMS value.
         uint16_t smslen;
@@ -764,7 +773,7 @@ void loop() {
 
         flushSerial();
         Serial.println(F("NOTE: in beta! Use small webpages to read!"));
-        Serial.println(F("URL to read (e.g. www.eMGing.com.ar/test.html):"));
+        Serial.println(F("URL to read (e.g. www.emging.com.ar/test):"));
         Serial.print(F("http://")); readline(url, 79);
         Serial.println(url);
 

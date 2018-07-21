@@ -553,6 +553,59 @@ boolean eMGing_900_808::getSMSSender(uint8_t i, char *sender, int senderlen) {
   return result;
 }
 
+boolean eMGing_900_808::getSMSdate(uint8_t i, char *date, int datelen) {
+  // Ensure text mode and all text mode parameters are sent.
+  if (! sendCheckReply(F("AT+CMGF=1"), ok_reply)) return false;
+  if (! sendCheckReply(F("AT+CSDH=1"), ok_reply)) return false;
+
+
+  DEBUG_PRINT(F("AT+CMGR="));
+  DEBUG_PRINTLN(i);
+
+
+  // Send command to retrieve SMS message and parse a line of response.
+  mySerial->print(F("AT+CMGR="));
+  mySerial->println(i);
+  readline(1000);
+
+
+  DEBUG_PRINTLN(replybuffer);
+
+
+  // Parse the second field in the response.
+  boolean result = parseReplyQuoted(F("+CMGR:"), date, datelen, ',', 3);
+  // Drop any remaining data from the response.
+  flushInput();
+  return result;
+}
+
+boolean eMGing_900_808::getSMStime(uint8_t i, char *time, int timelen) {
+  // Ensure text mode and all text mode parameters are sent.
+  if (! sendCheckReply(F("AT+CMGF=1"), ok_reply)) return false;
+  if (! sendCheckReply(F("AT+CSDH=1"), ok_reply)) return false;
+
+
+  DEBUG_PRINT(F("AT+CMGR="));
+  DEBUG_PRINTLN(i);
+
+
+  // Send command to retrieve SMS message and parse a line of response.
+  mySerial->print(F("AT+CMGR="));
+  mySerial->println(i);
+  readline(1000);
+
+
+  DEBUG_PRINTLN(replybuffer);
+
+
+  // Parse the second field in the response.
+  boolean result = parseReplyQuoted(F("+CMGR:"), time, timelen, ',', 4);
+  time[8]='\0';
+  // Drop any remaining data from the response.
+  flushInput();
+  return result;
+}
+
 boolean eMGing_900_808::sendSMS(char *smsaddr, char *smsmsg) {
   if (! sendCheckReply(F("AT+CMGF=1"), ok_reply)) return -1;
 
@@ -567,7 +620,8 @@ boolean eMGing_900_808::sendSMS(char *smsaddr, char *smsmsg) {
   mySerial->println(smsmsg);
   mySerial->println();
   mySerial->write(0x1A);
-
+  
+	
   DEBUG_PRINTLN("^Z");
 
   if ( (_type == EMGING_3G_A) || (_type == EMGING_3G_E) ) {
@@ -1544,8 +1598,8 @@ boolean eMGing_900_808::HTTP_GET_start(char *url,
     return false;
 
   // HTTP GET
-  if (! HTTP_action(HTTP_GET, status, datalen, 30000))
-    return false;
+  if (! HTTP_action(HTTP_GET, status, datalen, 40000))
+    //return false;
 
   DEBUG_PRINT(F("Status: ")); DEBUG_PRINTLN(*status);
   DEBUG_PRINT(F("Len: ")); DEBUG_PRINTLN(*datalen);
