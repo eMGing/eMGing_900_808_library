@@ -1,5 +1,9 @@
 # Librería eMGing para Shield eMGing 900/808
 
+![](resources/Shield_eMGing_808_desc.jpg "Shield_eMGing_808_desc")
+![](resources/Shield_eMGing_900_desc.jpg "Shield_eMGing_900_desc")
+![](resources/Shield_eMGing_808_900_PINOUT.jpg "Shield_eMGing_808_900_PINOUT")
+
 --(Esta librería requiere Arduino v1.0.6 o superior)--
 
 Esta librería se codeo especialmente para manejar los dos Shields GSM-GPRS que desarrolló eMGing
